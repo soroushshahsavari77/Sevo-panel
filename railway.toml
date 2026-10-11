@@ -1,0 +1,14 @@
+[[services]]
+  name = "panel"
+
+  [services.variables]
+    # Secrets MUST be configured in Railway Variables/Secrets.
+    # Do not commit real credentials to this file.
+    ENVIRONMENT = "production"
+    MTPROXY_ENABLED = "true"
+    MTPROXY_PORT = "443"
+
+  [services.deploy]
+    startCommand = "python main.py"
+    healthcheckPath = "/health"
+    healthcheckTimeout = 100
